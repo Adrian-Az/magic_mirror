@@ -1,12 +1,3 @@
-/* Magic Mirror Config Sample
- *
- * By Michael Teeuw http://michaelteeuw.nl
- * MIT Licensed.
- *
- * For more information how you can configurate this file
- * See https://github.com/MichMich/MagicMirror#configuration
- *
- */
 
 var config = {
 	address: "localhost", // Address to listen on, can be:
