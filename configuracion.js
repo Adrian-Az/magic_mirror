@@ -1,4 +1,13 @@
-Lol 982
+/* Magic Mirror Config Sample
+ *
+ * By Michael Teeuw http://michaelteeuw.nl
+ * MIT Licensed.
+ *
+ * For more information how you can configurate this file
+ * See https://github.com/MichMich/MagicMirror#configuration
+ *
+ */
+
 var config = {
 	address: "localhost", // Address to listen on, can be:
 	                      // - "localhost", "127.0.0.1", "::1" to listen on loopback interface
@@ -17,6 +26,83 @@ var config = {
 	units: "metric",
 
 	modules: [
+/*
+		{
+			module: 'iFrame',
+			position: 'middle_center',	// This can be any of the regions.
+			config: {
+				// See 'Configuration options' for more information.
+					url: "http://www.granma.cu/",
+					width: "100%", // Optional. Default: 100%
+					height: "100px", //Optional. Default: 100px
+			}
+		},
+*/
+/*
+		{
+			module: 'MMM-iFrame-Ping',
+			position: 'middle_center',	// This can be any of the regions.
+			config: {
+				// See 'Configuration options' for more information.
+				url: "http://www.juventudrebelde.cu", //url to display
+				height:"100%",
+				width:"100%",
+				autoRefresh: true, //set to false for video
+				updateInterval: 1, //in min. Only if autoRefresh: true
+				displayLastUpdate: true,
+				width: "100%", // Optional. Default: 100%
+				height: "400px", //Optional. Default: 100px
+				scrolling: "no"
+			}
+		},
+*/
+/*
+		{
+			module: 'MMM-SmartWebDisplay',
+			position: 'middle_center',	// This can be any of the regions.
+			config: {
+				// See 'Configuration options' for more information.
+				logDebug: false, //set to true to get detailed debug logs. To see them : "Ctrl+Shift+i"
+				height:"100%", //hauteur du cadre en pixel ou %
+				width:"100%", //largeur
+               			updateInterval: 0, //in min. Set it to 0 for no refresh (for videos)
+                		NextURLInterval: 0.5, //in min, set it to 0 not to have automatic URL change. If only 1 URL given, it will be updated
+                		// displayLastUpdate: true, //to display the last update of the URL
+				// displayLastUpdateFormat: 'ddd - HH:mm:ss', //format of the date and time to display
+                		url: ["http://www.juventudrebelde.cu","http://www.granma.cu"], //source of the URL to be displayed
+				// url: ["http://magicmirror.builders/", "https://www.youtube.com/embed/Qwc2Eq6YXTQ?autoplay=1"],
+                		scrolling: "no" // allow scrolling or not. html 4 only
+			}
+		},
+*/
+		{
+			module: "MMM-EmbedYoutube", //
+			position: "middle_center",	// This can be any of the regions.
+			config: {
+				// See 'Configuration options' in README.md for more information.
+				// video_id: "erJn6euu3V0",
+                        	autoplay:true,
+                        	controls: false,
+                        	showinfo: true,
+                        	// video_list:["H8huKJEYsRc"],
+                        	// loop:true,
+				playlist: "PLjp5Tu76sQAWtysTr7yALUYk6LXAvsDAW"
+			}
+		},
+/*
+		{
+		        module: 'MMM-iFrame',
+		        position: 'middle_center',	// This can be any of the regions.
+		        config: {
+			// See 'Configuration options' for more information.
+				url: ["http://www.juventudrebelde.cu","http://www.granma.cu","http://www.beisbolcubano.cu/serie_actual/"],  // as many URLs you want or you can just ["ENTER IN URL"] if single URL.
+				width:"100%", // Optional. Default: 100%
+				height: "300px", //Optional. Default: 100px
+                                updateInterval: 0.5 * 60 * 1000
+			}
+		},
+*/
+/*
 		{
 			module: "alert",
 		},
@@ -25,13 +111,53 @@ var config = {
 			position: "top_bar",
 			clockBold: true
 		},
+*/
 		{
 			module: "clock",
 			position: "top_left"
 		},
+/*
+		{
+  			module: "MMM-MyScoreboard",
+  			position: "middle_center",
+  			// classes: "default everyone",
+  			header: "My Scoreboard",
+  			config: {
+    				showLeagueSeparators: true,
+    				colored: true,
+    				viewStyle: "smallLogos",
+    				sports: [
+      					{
+        					league: "NBA"
+      					},
+      					{
+        					league: "MLB"
+      					},
+					{
+						league: "ESP_LALIGA"
+					},
+					{
+						league: "FRA_LIGUE_1"
+					},
+					{
+						league: "GER_BUNDESLIGA"
+					},
+					{
+						league: "ITA_SERIE_A"
+					},
+					{
+						league: "UEFA_CHAMPIONS"
+					},
+					{
+						league: "ENG_PREMIERE_LEAGUE"
+					},
+    				]
+  			}
+		},
+*/
 		{
 			module: "newsfeed",
-			position: "middle_center",
+			position: "bottom_bar",
 			config: {
 				feeds: [
 					{
@@ -59,25 +185,14 @@ var config = {
 				showSourceTitle: true,
 				// wrapTitle: true,
 				showPublishDate: true,
-				broadcastNewsFeeds: true,
+				// broadcastNewsFeeds: true,
 				// broadcastNewsUpdates: true,
 				showDescription: true,
 				// wrapDescription: true,
 				// updateInterval: 1000
+				updateInterval: 20 * 1000,
 			}
 		},
-/*		
-		{
-			module: "MMM-EmbedYoutube", // Path to youtube module from modules folder Exmaple: MagicMirror/modules/custom/MMM-EmbedYoutube/ so it's custom/MMM-EmbedYoutube
-			position: "top_left",	// This can be any of the regions.
-			config: {
-				// See 'Configuration options' in README.md for more information.
-				playlist: "PLK6ffq7bkNBwAnC97HfFYUvhCmeCrb3",
-				loop: true,
-				autoplay: true
-			}
-		},
-*/
 		{
 			module: "MMM-MyStandings",
 			position: "bottom_bar",
@@ -85,7 +200,26 @@ var config = {
 				updateInterval: 60 * 60 * 1000, // every 60 minutes
 				rotateInterval: 5 * 1000, // every 1 minute
 				sports: [
-					{ league: "NBA", groups: ["Atlantic", "Central", "Southeast", "Northwest", "Pacific", "Southwest"] },
+/*
+					{
+						league: "ESP_LALIGA",
+					},
+					{
+						league: "GER_BUNDESLIGA",
+					},
+					{
+						league: "ITA_SERIE_A",
+					},
+					{
+						league: "ENG_PREMIERE_LEAGUE",
+					},
+					{
+						league: "UEFA_EUROPEAN_CHAMPIONSHIP",
+					},
+*/
+					{ 
+						league: "NBA", groups: ["Atlantic", "Central", "Southeast", "Northwest", "Pacific", "Southwest"] 
+					},
 				],
 				nameStyle: "short",
 				showLogos: true,
@@ -94,46 +228,128 @@ var config = {
 				fadeSpeed: 2000,
 			}
   		},
+
+/*
+		{
+			module: "MMM-APOD",
+			position: "middle_center",
+			config: {
+				appid: "DEMO_KEY", // NASA API key (api.nasa.gov)
+				maxMediaWidth: 500,
+				maxMediaHeight: 300,
+			}
+		},
+*/
+/*
 		{
             		module: 'MMM-Carousel',
             		config: {
                 		transitionInterval: 30000,
-                		ignoreModules: ['clock'],
+                		ignoreModules: ['clock', 'currentweather'],
                 		mode: 'slides',
                 		slides: [
-					// ['MMM-EmbedYoutube'],
+					// ['MMM-MyScoreboard'],
+					['MMM-ImageSlideshow'],
+					['MMM-soccer'],
+					['MMM-yrWeather'],
                     			['newsfeed', 'MMM-News-QR'],
 					['MMM-MyStandings'],
 					['MMM-APOD']
                 		]
             		}
         	},
+*/
 		{
-    			module: 'MMM-News-QR',
-    			config: {
-        			// possible values (polling, push)
-        			// push only works with MagicMirror 2.8+ and broadcastNewsFeeds activated
-        			updateType : 'push',
-        			// Interval to check the news
-        			// only needed if updateType is polling
-        			interval: 2000,
-        			// Animation between change
-        			animationSpeed: 2500,
-        			// Color of the Code
-        			colorDark: '#fff',
-        			// Background Color
-        			colorLight: '#000',
-        			// Size of the Code
-        			imageSize: 150
-    			}
-		},
+            		module: 'MMM-Carousel',
+            		config: {
+                		transitionInterval: 30 * 1000,
+                		ignoreModules: ['clock', 'currentweather'],
+                		mode: 'positional',
+				middle_center: {
+					enabled: true, 
+					ignoreModules: [], 
+					overrideTransitionInterval: 30 * 1000,
+
+				},
+				bottom_bar: {
+					enabled: true, 
+					ignoreModules: [], 
+					overrideTransitionInterval: 60 * 1000,
+				}
+            		}
+        	},
 		{
-			module: "MMM-APOD",
-			position: "fullscreen_below",
+			module: 'MMM-yrWeather',
+			position: 'bottom_bar', // you may choose any location
 			config: {
-				appid: "DEMO_KEY" // NASA API key (api.nasa.gov)
+				location: 'Cuba/Pinar_del_Río/Pinar_del_Rio', // required
+				updateInterval: 1800000 // optional (1000 * 60 * 30 = 1800000 = 30 minutes)
 			}
 		},
+/*
+		{
+			module: 'MMM-YrThen',
+			position: 'top_right',
+			config: {
+				location: '2-3544091',
+				numDays: 1,
+				title: "El Tiempo"
+			}
+		},
+*/
+		{
+			module: "currentweather",
+			position: "top_right",
+			config: {
+				location: "Pinar del Río",
+				locationID: "3544091",  //ID from http://www.openweathermap.org/help/city_list.txt
+				appid: "3b5acb953f21716689601376e3ad59b0",
+                                units:"metric",
+                                animationSpeed:2500,
+                                showFeelsLike:false,
+                                lang:"es",
+                                showWindDirection:true,
+                                showHumidity:true,
+                                degreeLabel:true,
+                                useKMPHWind:false,
+                                useBeaufort:false,
+                                onlyTemp:false
+			}
+		},
+		{
+			module: "weatherforecast",
+			position: "top_right",
+			header: "Próximos días",
+			config: {
+				location: "Pinar del Río",
+				locationID: "3544091",  //ID from http://www.openweathermap.org/help/city_list.txt
+				appid: "3b5acb953f21716689601376e3ad59b0",
+                                units:"metric"
+			}
+		},
+
+		{
+			module: 'MMM-ImageSlideshow',
+			position: 'fullscreen_below',
+			config: {
+				imagePaths: ['modules/MMM-ImageSlideshow/exampleImages'],
+				fixedImageWidth: 1920,
+				fixedImageHeight:1080,
+				//originalWidthPx:1920,
+				//originalHeightPx:1080,
+			}
+		},
+
+		{
+    			module: 'MMM-soccer',
+    			position: 'bottom_bar',
+    			config: {
+				api_key: '036a7567bfae4473aea8af011c8363d4',
+				show: ['SPAIN', 'GERMANY'],
+    			}
+		},
+		
+		
 	]
 
 };
