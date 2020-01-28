@@ -75,7 +75,7 @@ var config = {
 			}
 		},
 */
-		{
+/*		{
 			module: "MMM-EmbedYoutube", //
 			position: "middle_center",	// This can be any of the regions.
 			config: {
@@ -88,7 +88,7 @@ var config = {
                         	// loop:true,
 				playlist: "PLjp5Tu76sQAWtysTr7yALUYk6LXAvsDAW"
 			}
-		},
+		},*/
 /*
 		{
 		        module: 'MMM-iFrame',
@@ -157,7 +157,7 @@ var config = {
 */
 		{
 			module: "newsfeed",
-			position: "bottom_bar",
+			position: "middle_center",
 			config: {
 				feeds: [
 					{
@@ -240,7 +240,6 @@ var config = {
 			}
 		},
 */
-/*
 		{
             		module: 'MMM-Carousel',
             		config: {
@@ -250,15 +249,15 @@ var config = {
                 		slides: [
 					// ['MMM-MyScoreboard'],
 					['MMM-ImageSlideshow'],
-					['MMM-soccer'],
-					['MMM-yrWeather'],
-                    			['newsfeed', 'MMM-News-QR'],
-					['MMM-MyStandings'],
-					['MMM-APOD']
+					//['MMM-EmbedYoutube'],
+					['newsfeed', 'MMM-soccer'],
+                    			['newsfeed', 'MMM-yrWeather'],
+					['newsfeed', 'MMM-MyStandings'],
+					//['MMM-APOD']
                 		]
             		}
         	},
-*/
+/*
 		{
             		module: 'MMM-Carousel',
             		config: {
@@ -278,6 +277,7 @@ var config = {
 				}
             		}
         	},
+*/
 		{
 			module: 'MMM-yrWeather',
 			position: 'bottom_bar', // you may choose any location
@@ -331,6 +331,7 @@ var config = {
 		{
 			module: 'MMM-ImageSlideshow',
 			position: 'fullscreen_below',
+			// position: 'middle_center',
 			config: {
 				imagePaths: ['modules/MMM-ImageSlideshow/exampleImages'],
 				fixedImageWidth: 1920,
